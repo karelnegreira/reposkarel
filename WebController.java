@@ -14,9 +14,10 @@ import com.loginregistrationjpa.repos.Repository;
 public class WebController {
 	@Autowired
 	Repository repos;
-@RequestMapping("/search/{id}")
-public Optional<User> getUserByName(@PathVariable("id")long id) {
+@RequestMapping("/search/")
+public Optional<User> getUserByName(@PathVariable("id")long id, @PathVariable("username")String username, @PathVariable("password")String pass ) {
 	Optional<User> usertest = (Optional<User>) repos.findById(id);
+	System.out.println(username + pass);
 	return usertest;
 }
 
